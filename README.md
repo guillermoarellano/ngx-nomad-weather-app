@@ -1,5 +1,7 @@
 # LocalWeatherApp
 
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/guillermoarellano/ngx-nomad-weather-app.svg?columns=all&style=flat-square)](https://waffle.io/guillermoarellano/ngx-nomad-weather-app)
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
 ## Development server
