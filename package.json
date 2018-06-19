@@ -13,7 +13,6 @@
   "prettier": {
     "printWidth": 90,
     "singleQuote": true,
-    "trailingComma": "es5",
     "parser": "typescript"
   },
   "private": true,
