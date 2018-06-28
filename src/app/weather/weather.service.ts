@@ -22,19 +22,23 @@ interface ICurrentWeatherData {
   name: string;
 }
 
+export interface IWeatherService {
+  getCurrentWeather(city: string, country: string): Observable<ICurrentWeather>;
+}
+
 @Injectable({
   providedIn: 'root'
 })
-export class WeatherService {
+export class WeatherService implements IWeatherService {
   constructor(private httpClient: HttpClient) {}
 
   getCurrentWeather(city: string, country: string): Observable<ICurrentWeather> {
-    return this.httpClient.get<ICurrentWeatherData>(
-      `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
-        `q=${city},${country}&appid=${environment.appId}`
-    ).pipe(
-      map(data => this.transformToICurrentWeather(data))
-    );
+    return this.httpClient
+      .get<ICurrentWeatherData>(
+        `${environment.baseUrl}api.openweathermap.org/data/2.5/weather?` +
+          `q=${city},${country}&appid=${environment.appId}`
+      )
+      .pipe(map(data => this.transformToICurrentWeather(data)));
   }
 
   private transformToICurrentWeather(data: ICurrentWeatherData): ICurrentWeather {
@@ -49,6 +53,6 @@ export class WeatherService {
   }
 
   private convertKelvinToFahrenheit(kelvin: number): number {
-    return kelvin * 9 / 5 - 459.67;
+    return (kelvin * 9) / 5 - 459.67;
   }
 }
