@@ -3,10 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
 
 interface ICurrentWeatherData {
-  weather: [{
-    description: string;
-    icon: string;
-  }];
+  weather: [
+    {
+      description: string;
+      icon: string;
+    }
+  ];
   main: {
     temp: number;
   };
